@@ -1,15 +1,16 @@
 name: Python tests
 
 on:
-  workflow_run:
-    workflows: [ 'Linting' ]
-    types:
-      - completed
+  push:
+  # workflow_run:
+  #   workflows: [ 'Linting' ]
+  #   types:
+  #     - completed
 
 jobs:
 
   build:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-22.04
     environment: tests
     strategy:
